@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>Combine Rules</h2>
+    
+    <div *ngIf="message" [ngClass]="{'success': isSuccess, 'error': !isSuccess}">
+      {{ message }}
+    </div>
+  
+    <div class="card-container">
+      <div class="card" *ngFor="let rule of rules">
+        <input type="checkbox" [(ngModel)]="rule.selected" />
+        <div class="card-content">
+          <h4>Rule: {{ rule.condition }}</h4>
+          <p>Type: {{ rule.type }}</p>
+          <p>Operator: {{ rule.operator }}</p>
+        </div>
+      </div>
+    </div>
+  
+    <button (click)="combineRules()" [disabled]="!isAnyRuleSelected()">Combine Selected Rules</button>
+  </div>
+  

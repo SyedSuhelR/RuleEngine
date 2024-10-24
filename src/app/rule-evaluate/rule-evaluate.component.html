@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Evaluate Rule</h2>
+  
+    <div class="form-group">
+      <label for="ast">AST (Abstract Syntax Tree):</label>
+      <textarea id="ast" [(ngModel)]="ast" class="form-control" rows="5" placeholder="Enter the AST here..."></textarea>
+    </div>
+  
+    <div class="form-group">
+      <label for="userData">User Data (JSON):</label>
+      <textarea id="userData" [(ngModel)]="userData" class="form-control" rows="5" placeholder="Enter user data as JSON..."></textarea>
+    </div>
+  
+    <button (click)="evaluateRule()" class="btn btn-primary">Evaluate Rule</button>
+  
+    <div *ngIf="message" class="alert" [ngClass]="{'alert-success': result, 'alert-danger': !result}">
+      {{ message }}
+    </div>
+  
+    <div *ngIf="result !== null">
+      <h4>Evaluation Result: {{ result ? 'True' : 'False' }}</h4>
+    </div>
+  </div>
+  
